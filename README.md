@@ -100,19 +100,19 @@ En este proyecto cada partícula representará una ruta posible entre un nodo or
 ```text
              Generación de Red
                       │
-                                    ▼
+                      ▼
              Grafo Ponderado
                       │
         ┌─────────────┼─────────────┐
         │             │             │
-             ▼                     ▼                     ▼
-    Dijkstra         A*            PSO
+        ▼             ▼             ▼
+    Dijkstra         A*           PSO
         │             │             │
         └─────────────┼─────────────┘
-                                    ▼
-                 Comparación
-                                    ▼
-                  Resultados
+                      ▼
+              Comparación
+                      ▼
+               Resultados
 ```
 
 ---
@@ -299,13 +299,13 @@ python src/main.py
 
 # Resultados Esperados
 
-Ejemplo de tabla comparativa:
+Tabla comparativa:
 
 | Algoritmo | Costo | Saltos | Tiempo (s) |
 |------------|--------|---------|------------|
-| Dijkstra | 42 | 7 | 0.002 |
-| A* | 42 | 7 | 0.001 |
-| PSO | 44 | 8 | 0.050 |
+| Dijkstra | 00 | 00 | 0.000 |
+| A* | 00 | 00 | 0.000 |
+| PSO | 00 | 00 | 0.000 |
 
 ---
 
