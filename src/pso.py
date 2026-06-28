@@ -177,7 +177,7 @@ def pso(G, origen, destino,
         # actualizar gbest
         mejor_local = min(enjambre, key=lambda x: x["fitness"])
 
-        if mejor_local["fitness"] < gbest["fitness"]:
+        if mejor_local["fitness"] < gbest_fitness:
             gbest_fitness = mejor_local["fitness"]
             gbest_ruta = mejor_local["ruta"].copy()
 
