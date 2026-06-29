@@ -9,7 +9,7 @@ import pickle
 # CONFIGURACIÓN
 # =====================================
 
-NUM_NODOS = 20
+NUM_NODOS = 50
 ENLACES_POR_NODO = 3
 
 ALPHA = 0.7   # peso latencia
@@ -20,15 +20,20 @@ BETA = 0.3    # peso congestión
 # GENERAR RED
 # =====================================
 
-def generar_red():
+def generar_red(
+        num_nodos=NUM_NODOS,
+        enlaces_por_nodo=ENLACES_POR_NODO,
+        seed=None
+):
     """
     Genera una red tipo Barabasi-Albert.
     """
 
     G = nx.barabasi_albert_graph(
-        n=NUM_NODOS,
-        m=ENLACES_POR_NODO
-    )
+        n=num_nodos,
+        m=enlaces_por_nodo,
+        seed=seed
+)
 
     return G
 
@@ -63,6 +68,31 @@ def asignar_costos(G):
         G[u][v]["latency"] = latencia
         G[u][v]["congestion"] = congestion
         G[u][v]["cost"] = round(costo, 2)
+
+
+# =====================================
+# GENERAR GRAFO COMPLETO
+# =====================================
+
+def generar_grafo(
+        num_nodos=NUM_NODOS,
+        enlaces_por_nodo=ENLACES_POR_NODO,
+        seed=None
+):
+
+    if seed is not None:
+        random.seed(seed)
+
+    G = generar_red(
+        num_nodos,
+        enlaces_por_nodo,
+        seed
+    )
+
+    asignar_costos(G)
+
+    return G
+
 
 
 # =====================================
@@ -167,11 +197,7 @@ def main():
 
     print("Generando red...")
 
-    G = generar_red()
-
-    print("Asignando costos...")
-
-    asignar_costos(G)
+    G = generar_grafo(seed=2)
 
     mostrar_resumen(G)
 
