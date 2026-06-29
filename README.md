@@ -273,8 +273,14 @@ venv\Scripts\activate
 
 ## Instalar dependencias
 
+Dentro del entorno virtual
 ```bash
 pip install networkx numpy pandas matplotlib
+```
+
+
+```bash
+pip install numpy pandas scikit-learn pillow joblib
 ```
 
 ---
