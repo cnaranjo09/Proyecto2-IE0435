@@ -137,36 +137,24 @@ Donde:
 Los pesos podrán modificarse para analizar distintos escenarios.
 
 ---
-
 # Escenarios de Prueba
 
-Se generarán diferentes redes utilizando NetworkX.
+Para evaluar el desempeño de los algoritmos se generaron automáticamente múltiples redes utilizando **NetworkX** y el modelo de **Barabási-Albert**.
 
-## Escenario 1
+En lugar de variar el tamaño de la red, se evaluaron diferentes topologías manteniendo constante el número de nodos. Esto permite analizar el comportamiento de los algoritmos frente a distintas configuraciones de enlaces sin que el tamaño de la red influya en los resultados.
 
-Red pequeña
+## Configuración utilizada
 
-```text
-10 nodos
-```
+| Parámetro | Valor |
+|-----------|------:|
+| Número de redes generadas | 10 |
+| Nodos por red | 50 |
+| Enlaces por nodo | 3 |
+| Casos origen-destino por red | 20 |
+| Total de casos evaluados | 200 |
+| Corridas independientes de PSO por caso | 10 |
 
-## Escenario 2
-
-Red mediana
-
-```text
-50 nodos
-```
-
-## Escenario 3
-
-Red grande
-
-```text
-100 nodos
-```
-
-
+Cada red fue generada utilizando una semilla diferente para obtener topologías distintas, mientras que para cada una se seleccionaron veinte pares de nodos origen-destino de forma aleatoria. Sobre cada caso se ejecutaron los algoritmos Dijkstra, A* y PSO, permitiendo realizar una comparación estadísticamente representativa de su desempeño.
 
 ---
 
@@ -229,7 +217,7 @@ Proyecto_PSO_Routing/
 │   ├── dijkstra.py
 │   ├── astar.py
 │   ├── pso.py
-│   ├── evaluation.py
+│   └── evaluation.py
 │
 ├── README.md
 ├── requirements.txt
