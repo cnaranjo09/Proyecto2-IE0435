@@ -230,7 +230,6 @@ Proyecto_PSO_Routing/
 │   ├── astar.py
 │   ├── pso.py
 │   ├── evaluation.py
-│   └── main.py
 │
 ├── README.md
 ├── requirements.txt
